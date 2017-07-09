@@ -10,7 +10,7 @@ import Login from './components/Login/login';
 export default class AppContainer extends React.Component {
   state = {
     appIsReady: false,
-    isLoggedIn: true,
+    isLoggedIn: false,
   };
 
   componentWillMount() {
