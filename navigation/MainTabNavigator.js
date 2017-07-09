@@ -8,6 +8,8 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 import Colors from '../constants/Colors';
 
+import ContestsStackNav from './ContestsStackNav';
+
 import HomeScreen from '../screens/HomeScreen';
 import ActivitiesScreen from '../screens/ActivitiesScreen';
 import HallScreen from '../screens/HallScreen';
@@ -16,7 +18,11 @@ import ProfileScreen from '../screens/ProfileScreen';
 export default TabNavigator(
   {
     Home: {
-      screen: HomeScreen,
+      // screen: HomeScreen,
+      screen: ContestsStackNav,
+      navigationOptions: {
+        header: null,
+      },
     },
     Activity: {
       screen: ActivitiesScreen,
@@ -61,7 +67,6 @@ export default TabNavigator(
     tabBarPosition: 'bottom',
     // Disable animation so that iOS/Android have same behaviors
     animationEnabled: false,
-    // Don't show the labels
     tabBarOptions: {
       showLabel: true,
     },

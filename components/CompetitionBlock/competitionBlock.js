@@ -6,7 +6,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 class CompetitionBlock extends React.Component {
   render() {
     return (
-      <View style={styles.blockContainer}>
+      <TouchableOpacity
+        style={styles.blockContainer}
+        onPress={this.props.onClick}>
         <Image
           source={this.props.background}
           style={styles.backgroundImage}
@@ -17,9 +19,9 @@ class CompetitionBlock extends React.Component {
                 {this.props.caption.toUpperCase()}
               </Text>
             </View>
-            <TouchableOpacity style={styles.camera}>
+            <View style={styles.camera}>
               <Icon name='camera' size={30} color='#f6f6f6' />
-            </TouchableOpacity>
+            </View>
           </View>
           <View style={styles.blockContentWrapper}>
             <View>
@@ -37,9 +39,9 @@ class CompetitionBlock extends React.Component {
             </View>
             {this.props.date &&
               <View style={styles.blockContentWrapper}>
-                <TouchableOpacity style={styles.camera}>
+                <View style={styles.camera}>
                   <Icon name='calendar' size={30} color='#f6f6f6' />
-                </TouchableOpacity>
+                </View>
                 <View>
                   <Text style={styles.blockText}>
                     {this.props.date}
@@ -49,7 +51,7 @@ class CompetitionBlock extends React.Component {
             }
           </View>
         </Image>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
@@ -96,6 +98,7 @@ CompetitionBlock.propTypes = {
   actions: PropTypes.any,
   provider: PropTypes.any,
   date: PropTypes.any,
+  onClick: PropTypes.func,
 }
 
 export default CompetitionBlock;

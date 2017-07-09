@@ -17,6 +17,7 @@ const blocks = [
   {
     background: require('../assets/images/exotic-car.png'),
     caption: 'Most exotic cars',
+    desc: 'Show us the most exotic car!',
     provider: {
       text: 'Povered by Porshe',
       icon: require('../assets/images/porsche_logo.png')
@@ -26,6 +27,7 @@ const blocks = [
   {
     background: require('../assets/images/burrito.png'),
     caption: 'Best Burrito Selfie',
+    desc: 'Show us your funniest burrito selfie and get free Chipotle for a year!',
     provider: {
       text: 'By Chipotle',
       icon: require('../assets/images/porsche_logo.png')
@@ -35,6 +37,7 @@ const blocks = [
   {
     background: require('../assets/images/girl.jpeg'),
     caption: 'Prettiest in pink',
+    desc: 'Show us your funniest look and get free Chipotle for a year!',
     provider: {
       text: 'By Victoria\'s Secret',
       icon: require('../assets/images/porsche_logo.png')
@@ -44,6 +47,7 @@ const blocks = [
   {
     background: require('../assets/images/pacers_heat_game_6.jpg'),
     caption: 'Heat game day fase',
+    desc: 'Show us the coolest game moment and get free Chipotle for a year!',
     provider: {
       text: 'By Anonymous',
       icon: require('../assets/images/porsche_logo.png')
@@ -56,6 +60,10 @@ export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'TOPVOTE',
   };
+
+  goTo = (competition) => {
+    this.props.navigation.navigate('Details', competition);
+  }
 
   render() {
     return (
@@ -71,6 +79,7 @@ export default class HomeScreen extends React.Component {
                 caption={item.caption}
                 provider={item.provider}
                 date={item.date}
+                onClick={() => { this.goTo(item) }}
               />
             ))
           }
@@ -101,18 +110,6 @@ export default class HomeScreen extends React.Component {
       );
     }
   }
-
-  _handleLearnMorePress = () => {
-    Linking.openURL(
-      'https://docs.expo.io/versions/latest/guides/development-mode'
-    );
-  };
-
-  _handleHelpPress = () => {
-    Linking.openURL(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
 }
 
 const styles = StyleSheet.create({
